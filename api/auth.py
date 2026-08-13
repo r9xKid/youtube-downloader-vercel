@@ -1,0 +1,18 @@
+from http.server import BaseHTTPRequestHandler
+
+
+class handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.end_headers()
+
+        self.wfile.write(
+            b"""
+            <html>
+            <body>
+            <h2>OAuth endpoint is working.</h2>
+            </body>
+            </html>
+            """
+        )
